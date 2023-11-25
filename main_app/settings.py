@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -129,4 +130,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'helpers.pagination.CustomPageNumberPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# DRF Swagger
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Article Social',
+    'DESCRIPTION': 'Article Social APIs',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
