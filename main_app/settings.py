@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
-    'rest_framework_swagger'
+    'rest_framework_swagger',
     'apps.user.apps.UserConfig',
 ]
 
@@ -140,3 +140,5 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
+# Default django user model
+AUTH_USER_MODEL = 'user.User'
