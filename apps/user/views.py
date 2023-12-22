@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils.translation import gettext as _
 from drf_spectacular.utils import extend_schema
-from rest_framework import mixins
+from rest_framework import mixins, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet
@@ -14,6 +14,8 @@ User = get_user_model()
 
 class UserView(mixins.ListModelMixin, GenericViewSet):
     serializer_class = UserSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username', 'email']
 
     def get_queryset(self):
         return User.objects.filter(is_active=True)
