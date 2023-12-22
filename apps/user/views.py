@@ -36,5 +36,6 @@ class RegistrationView(APIView):
                 is_active=True,
             )
             user.set_password(serializer.validated_data['password'])
+            user.save()
 
         return Response(_('Create an user'))
