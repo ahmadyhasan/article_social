@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework_swagger',
     'apps.user.apps.UserConfig',
+    'apps.article.apps.ArticleConfig',
 ]
 
 MIDDLEWARE = [
