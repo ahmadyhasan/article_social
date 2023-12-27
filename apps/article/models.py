@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+
 from apps.user.models import User
 from helpers.models import AbstractBaseModel
 
@@ -12,3 +14,7 @@ class Article(AbstractBaseModel):
 
     def __str__(self):
         return self.title
+
+    @admin.display(description='author')
+    def get_author(self):
+        return [user.username for user in self.author.all()]
