@@ -5,7 +5,7 @@ from apps.article.serializers import ArticleSerializer
 from apps.article.models import Article
 
 
-class ArticleView(mixins.ListModelMixin, GenericViewSet):
+class ArticleView(mixins.ListModelMixin, mixins.RetrieveModelMixin, GenericViewSet):
     serializer_class = ArticleSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['author', 'title']
