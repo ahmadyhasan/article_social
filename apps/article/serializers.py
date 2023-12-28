@@ -6,4 +6,5 @@ from apps.article.models import Article
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ('id', 'get_author', 'title', 'content', 'create_time', 'update_time')
+        fields = ('id', 'author', 'title', 'content', 'create_time', 'update_time', 'is_publish')
+        extra_kwargs = {'is_publish': {'write_only': True}}
