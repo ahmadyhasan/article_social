@@ -20,5 +20,5 @@ class AbstractBaseModel(AbstractIdOnlyModel):
         ordering = ('-create_time',)
 
     def save(self, *args, **kwargs):
-        self.full_clean()
+        self.clean()
         return super().save(*args, **kwargs)
