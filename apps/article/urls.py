@@ -5,8 +5,8 @@ from apps.article.views import ArticleView
 
 _API_ROUTER = DefaultRouter()
 
-_API_ROUTER.register('api/v1/articles', ArticleView, basename='articles')
+_API_ROUTER.register('/articles', ArticleView, basename='articles')
 
 urlpatterns = (
-    path('', include(_API_ROUTER.urls)),
+    path('api/v1', include(_API_ROUTER.urls)),
 )

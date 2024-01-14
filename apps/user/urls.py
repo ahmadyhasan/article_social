@@ -5,9 +5,9 @@ from apps.user.views import RegistrationView, UserView
 
 _API_ROUTER = DefaultRouter()
 
-_API_ROUTER.register('api/v1/users', UserView, basename='users')
+_API_ROUTER.register('/users', UserView, basename='users')
+_API_ROUTER.register('/Registration', RegistrationView, basename='Registration')
 
 urlpatterns = (
-    path('api/v1/registration', RegistrationView.as_view()),
-    path('', include(_API_ROUTER.urls)),
+    path('api/v1', include(_API_ROUTER.urls)),
 )
