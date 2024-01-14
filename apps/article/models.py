@@ -16,5 +16,5 @@ class Article(AbstractBaseModel):
         return self.title
 
     @admin.display(description='authors')
-    def get_author(self):
+    def get_authors(self):
         return [user.username for user in self.author.all()]
