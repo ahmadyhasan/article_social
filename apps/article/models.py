@@ -3,10 +3,12 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
 from apps.user.models import User
+from apps.category.models import Category
 from helpers.models import AbstractBaseModel
 
 
 class Article(AbstractBaseModel):
+    category = models.ManyToManyField(Category, verbose_name=_('Category'), related_name='articles', db_index=True)
     author = models.ManyToManyField(User, verbose_name=_('Author'), related_name='articles', db_index=True)
     title = models.CharField(_('Title'), max_length=300, db_index=True)
     content = models.TextField(_('Content'))
@@ -18,3 +20,7 @@ class Article(AbstractBaseModel):
     @admin.display(description='authors')
     def get_authors(self):
         return [user.username for user in self.author.all()]
+
+    @admin.display(description='categories')
+    def get_categories(self):
+        return [category.name for category in self.category.all()]
