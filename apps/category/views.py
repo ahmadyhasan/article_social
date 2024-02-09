@@ -9,4 +9,4 @@ class CategoryView(mixins.ListModelMixin, GenericViewSet,):
     serializer_class = CategorySerializer
 
     def get_queryset(self):
-        return Category.objects.filter(all)
+        return Category.objects.all()
