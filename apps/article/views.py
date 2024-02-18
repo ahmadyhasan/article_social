@@ -13,7 +13,7 @@ class ArticleView(
 ):
     serializer_class = ArticleSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['author', 'title']
+    search_fields = ['author', 'title', 'tags']
 
     def get_queryset(self):
         return Article.objects.filter(is_publish=True)
